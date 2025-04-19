@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import argparse
 
 
-def train_model(model, train_loader, val_loader, device, epochs=10):
+def train_model(model, train_loader, val_loader, device, model_name='model', epochs=10):
     model.to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
@@ -80,6 +80,10 @@ def train_model(model, train_loader, val_loader, device, epochs=10):
         print(f"📈 Epoch {epoch+1}/{epochs}")
         print(f"    🏋️ Train Loss: {train_loss:.4f} | Accuracy: {train_acc:.4f}")
         print(f"    🧪 Val Loss: {val_loss:.4f} | Acc: {acc:.4f} | F1: {f1:.4f} | Prec: {precision:.4f} | Recall: {recall:.4f}")
+
+    # Always save the final model at the end
+    torch.save(model.state_dict(), f'{model_name}.pth')
+    print(f"✅ Model saved as models/{model_name}.pth")
 
     return model, history
 
