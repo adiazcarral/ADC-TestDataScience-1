@@ -6,17 +6,30 @@ from src.adc_testdatascience_1.utils.data_utils import get_dataloaders
 from src.adc_testdatascience_1.models.logistic import LogisticRegression
 from src.adc_testdatascience_1.models.cnn import SimpleCNN
 from src.adc_testdatascience_1.models.equivariant_cnn import RotEquivariantCNN
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import argparse
 
 
-def train_model(model, train_loader, val_loader, device):
+def train_model(model, train_loader, val_loader, device, epochs=10):
     model.to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-    for epoch in range(5):  # keep short for testing
+    history = {
+        'train_loss': [],
+        'val_loss': [],
+        'val_acc': [],
+        'val_precision': [],
+        'val_recall': [],
+        'val_f1': []
+    }
+
+    for epoch in range(epochs):
         model.train()
+        running_loss = 0.0
+        correct = 0
+        total = 0
+
         for inputs, targets in train_loader:
             inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()
@@ -25,17 +38,50 @@ def train_model(model, train_loader, val_loader, device):
             loss.backward()
             optimizer.step()
 
+            running_loss += loss.item() * inputs.size(0)
+            _, predicted = torch.max(outputs.data, 1)
+            total += targets.size(0)
+            correct += (predicted == targets).sum().item()
+
+        train_loss = running_loss / total
+        train_acc = correct / total
+        history['train_loss'].append(train_loss)
+
+        # Validation
         model.eval()
         val_preds, val_labels = [], []
+        val_running_loss = 0.0
+
         with torch.no_grad():
             for inputs, targets in val_loader:
                 inputs, targets = inputs.to(device), targets.to(device)
                 outputs = model(inputs)
+                loss = criterion(outputs, targets)
+                val_running_loss += loss.item() * inputs.size(0)
+
                 val_preds.extend(outputs.argmax(1).cpu().numpy())
                 val_labels.extend(targets.cpu().numpy())
 
+        val_loss = val_running_loss / len(val_loader.dataset)
         acc = accuracy_score(val_labels, val_preds)
-        print(f"Epoch {epoch+1}, Validation Accuracy: {acc:.4f}")
+        precision = precision_score(val_labels, val_preds, average='macro', zero_division=0)
+        recall = recall_score(val_labels, val_preds, average='macro', zero_division=0)
+        f1 = f1_score(val_labels, val_preds, average='macro', zero_division=0)
+
+        # Optional: Confusion matrix
+        # conf_matrix = confusion_matrix(val_labels, val_preds)
+
+        history['val_loss'].append(val_loss)
+        history['val_acc'].append(acc)
+        history['val_precision'].append(precision)
+        history['val_recall'].append(recall)
+        history['val_f1'].append(f1)
+
+        print(f"📈 Epoch {epoch+1}/{epochs}")
+        print(f"    🏋️ Train Loss: {train_loss:.4f} | Accuracy: {train_acc:.4f}")
+        print(f"    🧪 Val Loss: {val_loss:.4f} | Acc: {acc:.4f} | F1: {f1:.4f} | Prec: {precision:.4f} | Recall: {recall:.4f}")
+
+    return model, history
 
 
 if __name__ == '__main__':
@@ -43,7 +89,9 @@ if __name__ == '__main__':
     parser.add_argument('--model', choices=['logistic', 'cnn', 'rotcnn'], default='logistic')
     args = parser.parse_args()
 
-    train_loader, val_loader, test_loader = get_dataloaders()
+    train_loader, val_loader, test_loader = get_dataloaders(
+        subset_fraction=0.05
+    )
 
     if args.model == 'logistic':
         model = LogisticRegression()
