@@ -1,5 +1,5 @@
 # src/models/simple_cnn.py
-from src.models.base_model import BaseClassifier
+from models.base_model import BaseClassifier
 import torch.nn as nn
 import torch.nn.functional as F
 
