@@ -1,17 +1,11 @@
-import sys
-from pathlib import Path
-
-# Add the project root (parent of src/) to sys.path
-sys.path.append(str(Path(__file__).resolve().parents[1]))
-
 # scripts/train_and_validate.py
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from src.adc_testdatascience_1.data.data_utils import get_dataloaders
-from models.logistic import LogisticRegression
-from models.cnn import SimpleCNN
-from models.rot_equivariant_cnn import RotEquivariantCNN
+from src.adc_testdatascience_1.utils.data_utils import get_dataloaders
+from src.adc_testdatascience_1.models.logistic import LogisticRegression
+from src.adc_testdatascience_1.models.cnn import SimpleCNN
+from src.adc_testdatascience_1.models.equivariant_cnn import RotEquivariantCNN
 from sklearn.metrics import accuracy_score
 import argparse
 
