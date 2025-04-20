@@ -11,9 +11,80 @@ TEST 1 -- DATA SCIENCE - CLASIFICACIÓN
 -   Free software: MIT license
 -   Documentation: <https://adc-testdatascience-1.readthedocs.io>.
 
-## Features
+# 🧠 MNIST Classifier Benchmark
 
-XYZ-TestDataScience-1/
+This repository implements and compares several models for classifying (rotated) MNIST digits:
+
+- Logistic Regression
+- Convolutional Neural Network (CNN)
+- Rotation-Equivariant CNN
+
+The code is modular and includes proper evaluation, logging, and clean separation between data, models, and scripts.
+
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Create and activate a virtual environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate       # On Windows: .venv\Scripts\activate
+
+pip install -r requirements.txt
+
+---
+
+🚀 How to Train a Model
+
+Run one of the following from the project root:
+
+python src/adc_testdatascience_1/scripts/train_model.py --model=logistic
+python src/adc_testdatascience_1/scripts/train_model.py --model=cnn
+python src/adc_testdatascience_1/scripts/train_model.py --model=rotcnn
+
+You can also use:
+
+make train
+(defaults to training the logistic model)
+
+🗃️ Module Overview
+
+src/adc_testdatascience_1/data/dataloaders.py
+Loads MNIST dataset
+Creates training, validation (balanced), and test sets
+Allows for fractioned subset training
+src/adc_testdatascience_1/models/
+logistic.py: Linear classifier
+cnn.py: Basic convolutional network
+rot_cnn.py: Rotation-equivariant CNN
+src/adc_testdatascience_1/evaluation/evaluator.py
+Computes accuracy, precision, recall, F1
+Plots normalized confusion matrix (percentage format)
+Compares multiple models side by side
+src/adc_testdatascience_1/scripts/train_model.py
+CLI to train a model
+Saves trained weights under src/adc_testdatascience_1/models/
+src/adc_testdatascience_1/scripts/test_model.py
+CLI to load a trained model and evaluate it
+
+🧹 Code Quality
+
+make lint        # flake8
+make format      # black + isort
+make quality     # radon, vulture
+
+✅ Requirements
+
+Python 3.8+
+See requirements.txt
+🧑‍💻 Author
+
+Ángel Díaz Carral
+
+## 📁 Project Structure
+
 ```bash
 │
 ├── README.md                        # Overview of the project and repo structure
@@ -58,7 +129,7 @@ XYZ-TestDataScience-1/
 │
 └── docs/
     └── index.md                     # (Optional) If using MkDocs for documentation
-.
+
 
 ## Credits
 

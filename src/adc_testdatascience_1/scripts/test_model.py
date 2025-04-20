@@ -2,7 +2,6 @@ import argparse
 
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 import torch
 from sklearn.metrics import (accuracy_score, confusion_matrix, f1_score,
                              precision_score, recall_score)
@@ -13,17 +12,6 @@ from src.adc_testdatascience_1.models.logistic import LogisticRegression
 from src.adc_testdatascience_1.utils.data_utils import get_dataloaders
 
 
-import torch
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.metrics import (
-    accuracy_score,
-    precision_score,
-    recall_score,
-    f1_score,
-    confusion_matrix,
-)
 
 
 class ModelEvaluator:
