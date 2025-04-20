@@ -38,49 +38,56 @@ pip install -r requirements.txt
 🚀 How to Train a Model
 
 Run one of the following from the project root:
-
+```bash
 python src/adc_testdatascience_1/scripts/train_model.py --model=logistic
 python src/adc_testdatascience_1/scripts/train_model.py --model=cnn
 python src/adc_testdatascience_1/scripts/train_model.py --model=rotcnn
-
+```
 You can also use:
-
+```bash
 make train
+```
 (defaults to training the logistic model)
 
 🗃️ Module Overview
 
 src/adc_testdatascience_1/data/dataloaders.py
-Loads MNIST dataset
-Creates training, validation (balanced), and test sets
-Allows for fractioned subset training
+
+- Loads MNIST dataset
+- Creates training, validation (balanced), and test sets
+- Allows for fractioned subset training
+
 src/adc_testdatascience_1/models/
-logistic.py: Linear classifier
-cnn.py: Basic convolutional network
-rot_cnn.py: Rotation-equivariant CNN
+
+- logistic.py: Linear classifier
+- cnn.py: Basic convolutional network
+- rot_cnn.py: Rotation-equivariant CNN
+
 src/adc_testdatascience_1/evaluation/evaluator.py
-Computes accuracy, precision, recall, F1
-Plots normalized confusion matrix (percentage format)
-Compares multiple models side by side
+
+- Computes accuracy, precision, recall, F1
+- Plots normalized confusion matrix (percentage format)
+- Compares multiple models side by side
+
 src/adc_testdatascience_1/scripts/train_model.py
-CLI to train a model
-Saves trained weights under src/adc_testdatascience_1/models/
+
+- CLI to train a model
+- Saves trained weights under src/adc_testdatascience_1/models/
+
 src/adc_testdatascience_1/scripts/test_model.py
-CLI to load a trained model and evaluate it
+
+-CLI to load a trained model and evaluate it
 
 🧹 Code Quality
-
+```bash
 make lint        # flake8
 make format      # black + isort
-make quality     # radon, vulture
-
+make cyclo     # radon, vulture
+```
 ✅ Requirements
 
 Python 3.8+
 See requirements.txt
-🧑‍💻 Author
-
-Ángel Díaz Carral
 
 ## 📁 Project Structure
 
@@ -128,7 +135,11 @@ See requirements.txt
 │
 └── docs/
     └── index.md                     # (Optional) If using MkDocs for documentation
+```
 
+🧑‍💻 Author
+
+Ángel Díaz Carral
 
 ## Credits
 
