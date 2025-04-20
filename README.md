@@ -44,8 +44,9 @@ python src/adc_testdatascience_1/scripts/train_model.py --model=cnn
 python src/adc_testdatascience_1/scripts/train_model.py --model=rotcnn
 ```
 You can also use:
-
+```bash
 make train
+```
 (defaults to training the logistic model)
 
 🗃️ Module Overview
@@ -81,7 +82,7 @@ src/adc_testdatascience_1/scripts/test_model.py
 ```bash
 make lint        # flake8
 make format      # black + isort
-make quality     # radon, vulture
+make cyclo     # radon, vulture
 ```
 ✅ Requirements
 
