@@ -14,7 +14,9 @@ TEST 1 -- DATA SCIENCE - CLASIFICACIÓN
 ## Features
 
 XYZ-TestDataScience-1/
-`` bash
+```bash
+$ tree
+.
 │
 ├── README.md                        # Overview of the project and repo structure
 ├── requirements.txt                 # All Python dependencies
@@ -58,7 +60,7 @@ XYZ-TestDataScience-1/
 │
 └── docs/
     └── index.md                     # (Optional) If using MkDocs for documentation
-...
+
 ## Credits
 
 This package was created with
