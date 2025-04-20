@@ -15,8 +15,6 @@ TEST 1 -- DATA SCIENCE - CLASIFICACIÓN
 
 XYZ-TestDataScience-1/
 ```bash
-$ tree
-.
 │
 ├── README.md                        # Overview of the project and repo structure
 ├── requirements.txt                 # All Python dependencies
@@ -60,6 +58,7 @@ $ tree
 │
 └── docs/
     └── index.md                     # (Optional) If using MkDocs for documentation
+.
 
 ## Credits
 
