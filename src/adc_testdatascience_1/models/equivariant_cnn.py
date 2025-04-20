@@ -1,9 +1,9 @@
 # src/models/rot_equivariant_cnn.py
-from src.adc_testdatascience_1.models.base_model import BaseClassifier
 import torch.nn as nn
-import torch.nn.functional as F
 from e2cnn import gspaces
 from e2cnn import nn as enn
+
+from src.adc_testdatascience_1.models.base_model import BaseClassifier
 
 
 class RotEquivariantCNN(BaseClassifier):
@@ -15,15 +15,31 @@ class RotEquivariantCNN(BaseClassifier):
         self.input_type = in_type
 
         self.block1 = enn.SequentialModule(
-            enn.R2Conv(in_type, enn.FieldType(r2_act, 8 * [r2_act.regular_repr]), kernel_size=5, padding=2, bias=False),
+            enn.R2Conv(
+                in_type,
+                enn.FieldType(r2_act, 8 * [r2_act.regular_repr]),
+                kernel_size=5,
+                padding=2,
+                bias=False,
+            ),
             enn.ReLU(enn.FieldType(r2_act, 8 * [r2_act.regular_repr]), inplace=True),
-            enn.PointwiseMaxPool(enn.FieldType(r2_act, 8 * [r2_act.regular_repr]), kernel_size=2)
+            enn.PointwiseMaxPool(
+                enn.FieldType(r2_act, 8 * [r2_act.regular_repr]), kernel_size=2
+            ),
         )
 
         self.block2 = enn.SequentialModule(
-            enn.R2Conv(self.block1.out_type, enn.FieldType(r2_act, 16 * [r2_act.regular_repr]), kernel_size=5, padding=2, bias=False),
+            enn.R2Conv(
+                self.block1.out_type,
+                enn.FieldType(r2_act, 16 * [r2_act.regular_repr]),
+                kernel_size=5,
+                padding=2,
+                bias=False,
+            ),
             enn.ReLU(enn.FieldType(r2_act, 16 * [r2_act.regular_repr]), inplace=True),
-            enn.PointwiseMaxPool(enn.FieldType(r2_act, 16 * [r2_act.regular_repr]), kernel_size=2)
+            enn.PointwiseMaxPool(
+                enn.FieldType(r2_act, 16 * [r2_act.regular_repr]), kernel_size=2
+            ),
         )
 
         c = self.block2.out_type.size

@@ -1,8 +1,9 @@
-import torch
-from torchvision import datasets, transforms
-from torch.utils.data import DataLoader, Subset
-import random
 import os
+import random
+
+import torch
+from torch.utils.data import DataLoader, Subset
+from torchvision import datasets, transforms
 
 
 def get_dataloaders(batch_size=64, data_path='data', seed=42, subset_fraction=1.0, save_subset=True):
@@ -47,10 +48,23 @@ def get_dataloaders(batch_size=64, data_path='data', seed=42, subset_fraction=1.
     else:
         subset = full_dataset
 
-    # Train/Val split
-    train_size = int(0.8 * len(subset))
-    val_size = len(subset) - train_size
-    train_set, val_set = torch.utils.data.random_split(subset, [train_size, val_size])
+    # Balanced Train/Val split
+    indices = subset.indices if isinstance(subset, Subset) else list(range(len(subset)))
+    labels = [full_dataset[i][1] for i in indices]
+    class_indices = {i: [] for i in range(10)}
+    for i, label in zip(indices, labels):
+        class_indices[label].append(i)
+
+    train_indices = []
+    val_indices = []
+    for idxs in class_indices.values():
+        random.shuffle(idxs)
+        split = int(0.8 * len(idxs))
+        train_indices.extend(idxs[:split])
+        val_indices.extend(idxs[split:])
+
+    train_set = Subset(full_dataset, train_indices)
+    val_set = Subset(full_dataset, val_indices)
 
     # Load test set
     test_set = datasets.MNIST(data_path, train=False, download=True, transform=transform)

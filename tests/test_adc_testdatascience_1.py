@@ -5,9 +5,6 @@
 import pytest
 
 
-from adc_testdatascience_1 import adc_testdatascience_1
-
-
 @pytest.fixture
 def response():
     """Sample pytest fixture.

@@ -1,6 +1,7 @@
 # src/models/logistic.py
-from src.adc_testdatascience_1.models.base_model import BaseClassifier
 import torch.nn as nn
+
+from src.adc_testdatascience_1.models.base_model import BaseClassifier
 
 
 class LogisticRegression(BaseClassifier):

@@ -1,11 +1,12 @@
 import os
-import torch
+import unittest
+from typing import Tuple
+
 import numpy as np
 import pandas as pd
-from torchvision import datasets, transforms
-from typing import Tuple
+import torch
 from scipy.ndimage import laplace
-import unittest
+from torchvision import datasets, transforms
 
 
 class MNISTProcessor:
@@ -26,24 +27,22 @@ class MNISTProcessor:
         self.save_csv_path = save_csv_path
         self.blur_threshold = blur_threshold
         self.intensity_threshold = intensity_threshold
-        self.rotation_transform = transforms.RandomRotation(degrees=self.rotation_degrees)
+        self.rotation_transform = transforms.RandomRotation(
+            degrees=self.rotation_degrees
+        )
 
     def load_dataset(self):
         """Download or load MNIST dataset."""
         print("📥 Loading MNIST dataset...")
         self.dataset = datasets.MNIST(
-            self.data_dir,
-            train=True,
-            download=True,
-            transform=transforms.ToTensor()
+            self.data_dir, train=True, download=True, transform=transforms.ToTensor()
         )
 
     def apply_rotation(self):
         """Apply random rotation to all images."""
         print("🔄 Applying rotation to images...")
         self.rotated_data = [
-            (self.rotation_transform(img), label)
-            for img, label in self.dataset
+            (self.rotation_transform(img), label) for img, label in self.dataset
         ]
 
     def is_blurry(self, img: torch.Tensor) -> bool:
@@ -71,14 +70,8 @@ class MNISTProcessor:
         Save rotated and filtered data to CSV: each row is a flattened image + label.
         """
         print(f"💾 Saving processed data to: {self.save_csv_path}")
-        image_vectors = [
-            img.view(-1).numpy()
-            for img, _ in self.filtered_data
-        ]
-        labels = [
-            label
-            for _, label in self.filtered_data
-        ]
+        image_vectors = [img.view(-1).numpy() for img, _ in self.filtered_data]
+        labels = [label for _, label in self.filtered_data]
         df = pd.DataFrame(image_vectors)
         df["label"] = labels
         os.makedirs(os.path.dirname(self.save_csv_path), exist_ok=True)
