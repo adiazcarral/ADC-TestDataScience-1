@@ -21,7 +21,6 @@ This repository implements and compares several models for classifying (rotated)
 
 The code is modular and includes proper evaluation, logging, and clean separation between data, models, and scripts.
 
-
 ---
 
 ## ⚙️ Installation & Setup
@@ -33,7 +32,7 @@ python -m venv .venv
 source .venv/bin/activate       # On Windows: .venv\Scripts\activate
 
 pip install -r requirements.txt
-
+```
 ---
 
 🚀 How to Train a Model
