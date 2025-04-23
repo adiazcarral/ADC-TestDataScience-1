@@ -110,4 +110,4 @@ if __name__ == "__main__":
     processor = MNISTProcessor()
     processor.run_full_pipeline()
     # To run tests: uncomment the line below
-    unittest.main()
+    # unittest.main()
