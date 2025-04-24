@@ -30,5 +30,8 @@ format:
 cyclo:
 	radon cc src -a
 
+optimize:
+	python src/adc_testdatascience_1/optimize/optimize.py --model LogisticRegression
+
 clean:
 	find . -type d -name "__pycache__" -exec rm -r {} \; && find . -name "*.pyc" -delete
