@@ -1,0 +1,163 @@
+.
+├── AUTHORS.rst
+├── CODE_OF_CONDUCT.rst
+├── CONTRIBUTING.rst
+├── Dockerfile
+├── HISTORY.rst
+├── LICENSE
+├── MANIFEST.in
+├── Makefile
+├── README.md
+├── README.rst
+├── __init__.py
+├── data
+│   ├── subset_indices_1.pt
+│   └── subset_indices_5.pt
+├── docs
+│   ├── index.md
+│   ├── installation.md
+│   ├── old_sphinx
+│   │   ├── Makefile
+│   │   ├── authors.rst
+│   │   ├── conf.py
+│   │   ├── contributing.rst
+│   │   ├── history.rst
+│   │   ├── index.rst
+│   │   ├── installation.rst
+│   │   ├── make.bat
+│   │   ├── readme.rst
+│   │   └── usage.rst
+│   ├── testing.md
+│   └── usage.md
+├── mkdocs.yml
+├── poetry.lock
+├── pyproject.toml
+├── requirements.txt
+├── requirements_dev.txt
+├── ruff.toml
+├── setup.py
+├── site
+│   ├── 404.html
+│   ├── assets
+│   │   ├── images
+│   │   │   └── favicon.png
+│   │   ├── javascripts
+│   │   │   ├── bundle.c8b220af.min.js
+│   │   │   ├── bundle.c8b220af.min.js.map
+│   │   │   ├── lunr
+│   │   │   │   ├── min
+│   │   │   │   ├── tinyseg.js
+│   │   │   │   └── wordcut.js
+│   │   │   └── workers
+│   │   │       ├── search.f8cc74c7.min.js
+│   │   │       └── search.f8cc74c7.min.js.map
+│   │   └── stylesheets
+│   │       ├── main.2afb09e1.min.css
+│   │       ├── main.2afb09e1.min.css.map
+│   │       ├── palette.06af60db.min.css
+│   │       └── palette.06af60db.min.css.map
+│   ├── index.html
+│   ├── installation
+│   │   └── index.html
+│   ├── old_sphinx
+│   │   ├── Makefile
+│   │   ├── authors.rst
+│   │   ├── conf.py
+│   │   ├── contributing.rst
+│   │   ├── history.rst
+│   │   ├── index.rst
+│   │   ├── installation.rst
+│   │   ├── make.bat
+│   │   ├── readme.rst
+│   │   └── usage.rst
+│   ├── search
+│   │   └── search_index.json
+│   ├── sitemap.xml
+│   ├── sitemap.xml.gz
+│   ├── testing
+│   │   └── index.html
+│   └── usage
+│       └── index.html
+├── src
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   └── __init__.cpython-39.pyc
+│   ├── adc_testdatascience_1
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   └── __init__.cpython-39.pyc
+│   │   ├── app.py
+│   │   ├── cli.py
+│   │   ├── data
+│   │   │   ├── __init__.py
+│   │   │   └── mnist_processor.py
+│   │   ├── models
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── base_model.cpython-39.pyc
+│   │   │   │   ├── cnn.cpython-39.pyc
+│   │   │   │   ├── equivariant_cnn.cpython-39.pyc
+│   │   │   │   └── logistic.cpython-39.pyc
+│   │   │   ├── base_model.py
+│   │   │   ├── cnn.pth
+│   │   │   ├── cnn.py
+│   │   │   ├── equivariant_cnn.py
+│   │   │   ├── logistic.pth
+│   │   │   ├── logistic.py
+│   │   │   ├── logistic_model.pkl
+│   │   │   ├── model.pth
+│   │   │   └── rotcnn.pth
+│   │   ├── notebooks
+│   │   │   ├── 01_EDA_MNIST.html
+│   │   │   ├── 01_EDA_MNIST.ipynb
+│   │   │   ├── 02_train_standalone.html
+│   │   │   ├── 02_train_standalone.ipynb
+│   │   │   ├── 03_test_standalone.ipynb
+│   │   │   ├── __init__.py
+│   │   │   ├── cnn.pth
+│   │   │   ├── logistic.pth
+│   │   │   ├── old
+│   │   │   │   ├── 01_EDA.ipynb
+│   │   │   │   ├── 02_Training_Model_MNIST.ipynb
+│   │   │   │   └── 03_Test_Model_MNIST.ipynb
+│   │   │   └── rotcnn.pth
+│   │   ├── optimize
+│   │   │   └── optimize.py
+│   │   ├── scripts
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── test_model.cpython-39-pytest-7.4.0.pyc
+│   │   │   │   ├── test_model.cpython-39.pyc
+│   │   │   │   └── train_model.cpython-39.pyc
+│   │   │   ├── test_model.py
+│   │   │   └── train_model.py
+│   │   └── utils
+│   │       ├── __init__.py
+│   │       ├── __pycache__
+│   │       │   ├── __init__.cpython-39.pyc
+│   │       │   └── data_utils.cpython-39.pyc
+│   │       └── data_utils.py
+│   └── adc_testdatascience_1.egg-info
+│       ├── PKG-INFO
+│       ├── SOURCES.txt
+│       ├── dependency_links.txt
+│       ├── requires.txt
+│       └── top_level.txt
+├── structure.txt
+├── tests
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-39.pyc
+│   │   ├── test_functional_training.cpython-39-pytest-7.4.0.pyc
+│   │   ├── test_functional_training.cpython-39.pyc
+│   │   ├── test_integration_pipeline.cpython-39-pytest-7.4.0.pyc
+│   │   ├── test_unit_model.cpython-39-pytest-7.4.0.pyc
+│   │   └── test_unit_model.cpython-39.pyc
+│   ├── test_functional_training.py
+│   ├── test_integration_pipeline.py
+│   └── test_unit_model.py
+└── tox.ini
+
+34 directories, 127 files

@@ -19,7 +19,7 @@ This repository implements and compares several models for classifying (rotated)
 - Convolutional Neural Network (CNN)
 - Rotation-Equivariant CNN
 
-The code is modular and includes proper evaluation, logging, and clean separation between data, models, and scripts.
+The code is modular and includes proper evaluation and clean separation between data, models, and scripts.
 
 ---
 
@@ -35,7 +35,7 @@ pip install -r requirements.txt
 ```
 ---
 
-🚀 How to Train a Model
+## 🚀 How to Train a Model
 
 Run one of the following from the project root:
 ```bash
@@ -49,7 +49,7 @@ make train
 ```
 (defaults to training the logistic model)
 
-✅ How to Test a Model
+## ✅ How to Test a Model
 
 Run one of the following from the project root:
 ```bash
@@ -107,7 +107,7 @@ See requirements.txt
 docker build -t adc-model-api .
 ```
 
-🚀 2. Run the container
+## 🚀 2. Run the container
 ```bash
 docker run -p 8000:8000 adc-model-api
 ```
@@ -121,7 +121,7 @@ You can test the API easily in your browser:
 
 http://localhost:8000/docs
 
-🔮 POST /predict
+## 🔮 POST /predict
 
 Send your input data as a JSON list of features:
 ```bash
@@ -132,51 +132,9 @@ curl -X POST http://localhost:8000/predict \
 Replace the values in "inputs" with the appropriate input vector used during training.
 
 ## 📁 Project Structure
-
+The project structure has been captured and is available in the structure.txt file. You can view it using the following command:
 ```bash
-│
-├── README.md                        # Overview of the project and repo structure
-├── requirements.txt                 # All Python dependencies
-├── pyproject.toml                   # (Optional) For Poetry-based dependency management
-├── .flake8                          # Linter configuration
-├── .gitignore                       # Ignore common temp files, logs, cache, etc.
-│
-├── data/
-│   └── raw/                         # Original QM7b data
-│   └── processed/                   # Cleaned and preprocessed data
-│
-├── notebooks/
-│   ├── 01_eda_data_analysis.ipynb   # Exploratory data analysis + preprocessing
-│   ├── 02_training_validation.ipynb # Model training and validation
-│   └── 03_evaluation_testing.ipynb  # Final model evaluation and insights
-│
-├── src/
-│   ├── __init__.py
-│   ├── config/                      # Config classes or settings
-│   │   └── paths.py
-│   ├── data/                        # Loading, preprocessing, graph builders
-│   │   ├── load_qm7b.py
-│   │   └── preprocess.py
-│   ├── models/                      # Model definitions, training loop, utils
-│   │   ├── base_model.py
-│   │   ├── mlp.py                   # Shallow or FFN model
-│   │   └── gnn.py                   # GNN (e.g., GCN, GIN) with PyTorch Geometric
-│   ├── training/                    # Training and evaluation pipeline
-│   │   ├── train.py
-│   │   └── evaluate.py
-│   └── utils/                       # Common helpers (metrics, logging, plotting)
-│       ├── metrics.py
-│       └── visualizations.py
-│
-├── models/
-│   └── saved_model.pt               # Best trained model (optional, for inference)
-│
-├── reports/
-│   ├── figures/                     # Plots, EDA figures, confusion matrices
-│   └── results_summary.pdf          # Summary of results and insights
-│
-└── docs/
-    └── index.md                     # (Optional) If using MkDocs for documentation
+cat structure.txt
 ```
 
 🧑‍💻 Author
