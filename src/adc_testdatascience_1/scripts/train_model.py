@@ -13,6 +13,7 @@ from src.adc_testdatascience_1.models.equivariant_cnn import RotEquivariantCNN
 from src.adc_testdatascience_1.models.logistic import LogisticRegression
 from src.adc_testdatascience_1.utils.data_utils import get_dataloaders
 
+import pickle
 
 def train_model(model, train_loader, val_loader, device, model_name="model", epochs=10):
     model.to(device)
@@ -100,6 +101,9 @@ def train_model(model, train_loader, val_loader, device, model_name="model", epo
     torch.save(model.state_dict(), save_path)
     print(f"✅ Model saved as {save_path}")
 
+     # Save the model using pickle
+    with open(f"src/adc_testdatascience_1/models/{model_name}_model.pkl", "wb") as f:
+        pickle.dump(model, f)   
 
     return model, history
 

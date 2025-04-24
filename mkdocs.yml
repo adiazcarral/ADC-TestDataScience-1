@@ -1,0 +1,13 @@
+site_name: ADC Test Data Science 1
+site_url: https://adcdatascience1.com
+theme:
+  name: material
+  language: en
+  favicon: 'assets/favicon.ico'
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - Testing: testing.md
+

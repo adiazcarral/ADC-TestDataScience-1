@@ -18,7 +18,7 @@ train:
 	python src/adc_testdatascience_1/scripts/train_model.py --model=logistic
 test:
 	# poetry run python src/adc_testdatascience_1/scripts/test_model.py --model=logistic
-	python src/adc_testdatascience_1/scripts/test_model.py --model=logistic
+	python src/adc_testdatascience_1/scripts/test_model.py --model=rotcnn
 
 lint:
 	ruff check src tests

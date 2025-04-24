@@ -49,9 +49,24 @@ make train
 ```
 (defaults to training the logistic model)
 
+✅ How to Test a Model
+
+Run one of the following from the project root:
+```bash
+python src/adc_testdatascience_1/scripts/test_model.py --model=logistic
+python src/adc_testdatascience_1/scripts/test_model.py --model=cnn
+python src/adc_testdatascience_1/scripts/test_model.py --model=rotcnn
+```
+You can also use:
+```bash
+make test_model
+```
+(defaults to training the rotcnn model)
+This will evaluate the selected model on the test dataset and display metrics and a confusion matrix.
+
 🗃️ Module Overview
 
-src/adc_testdatascience_1/data/dataloaders.py
+src/adc_testdatascience_1/utils/data_utils.py
 
 - Loads MNIST dataset
 - Creates training, validation (balanced), and test sets
@@ -63,12 +78,6 @@ src/adc_testdatascience_1/models/
 - cnn.py: Basic convolutional network
 - rot_cnn.py: Rotation-equivariant CNN
 
-src/adc_testdatascience_1/evaluation/evaluator.py
-
-- Computes accuracy, precision, recall, F1
-- Plots normalized confusion matrix (percentage format)
-- Compares multiple models side by side
-
 src/adc_testdatascience_1/scripts/train_model.py
 
 - CLI to train a model
@@ -77,6 +86,8 @@ src/adc_testdatascience_1/scripts/train_model.py
 src/adc_testdatascience_1/scripts/test_model.py
 
 -CLI to load a trained model and evaluate it
+- Computes accuracy, precision, recall, F1
+- Plots normalized confusion matrix (percentage format)
 
 🧹 Code Quality
 ```bash
@@ -88,6 +99,37 @@ make cyclo     # radon, vulture
 
 Python 3.8+
 See requirements.txt
+
+🐳 Run the Model API with Docker + FastAPI
+
+📦 1. Build the Docker container
+```bash
+docker build -t adc-model-api .
+```
+
+🚀 2. Run the container
+```bash
+docker run -p 8000:8000 adc-model-api
+```
+
+The FastAPI server will be available at http://localhost:8000.
+
+🧪 3. Use the API
+🔍 Swagger UI
+
+You can test the API easily in your browser:
+
+http://localhost:8000/docs
+
+🔮 POST /predict
+
+Send your input data as a JSON list of features:
+```bash
+curl -X POST http://localhost:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"inputs": [[0.5, 0.3, 0.2, 0.8, 0.1, 0.9, 0.6, 0.4, 0.7, 0.2, 0.1, 0.3, 0.5, 0.6, 0.2, 0.9, 0.4, 0.1, 0.7, 0.8, 0.3, 0.4, 0.6, 0.2, 0.5, 0.3]]}'
+```
+Replace the values in "inputs" with the appropriate input vector used during training.
 
 ## 📁 Project Structure
 
