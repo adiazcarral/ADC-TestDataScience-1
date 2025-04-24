@@ -28,8 +28,21 @@ def test_full_pipeline(model_name="logistic"):
 
     # Evaluate
     evaluator = ModelEvaluator(device=device)
-    y_true, y_pred = evaluator.evaluate(model, test_loader, name=model_name)
-    
+    evaluator.evaluate(model, test_loader, name=model_name)
+
+    # Extract y_true and y_pred from the results dictionary
+    y_true = evaluator.results[model_name]["true_labels"]
+    y_pred = evaluator.results[model_name]["pred_labels"]
+
+    # Convert to numpy arrays if they're lists
+    y_true = np.array(y_true) if not isinstance(y_true, np.ndarray) else y_true
+    y_pred = np.array(y_pred) if not isinstance(y_pred, np.ndarray) else y_pred
+
+    # Assert to verify the results
+    assert isinstance(y_true, np.ndarray)
+    assert isinstance(y_pred, np.ndarray)
+    assert len(y_true) == len(y_pred)
+
     # Check types and length
     assert isinstance(y_true, np.ndarray), f"Expected numpy.ndarray, got {type(y_true)}"
     assert isinstance(y_pred, np.ndarray), f"Expected numpy.ndarray, got {type(y_pred)}"
@@ -43,6 +56,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model", choices=["logistic", "cnn", "rotcnn"], default="logistic"
     )
-    args = parser.parse_args()
+    # args = parser.parse_args()
     
-    test_full_pipeline(model_name=args.model)
+    # test_full_pipeline(model_name=args.model)
+    test_full_pipeline(model_name="logistic")
