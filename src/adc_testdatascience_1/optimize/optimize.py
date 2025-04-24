@@ -3,8 +3,10 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import f1_score
-from models import LogisticRegression, SimpleCNN, RotEquivariantCNN
-from dataloader import get_dataloaders
+from src.adc_testdatascience_1.models.logistic import LogisticRegression
+from src.adc_testdatascience_1.models.cnn import SimpleCNN
+from src.adc_testdatascience_1.models.equivariant_cnn import RotEquivariantCNN
+from src.adc_testdatascience_1.utils.data_utils import get_dataloaders
 import os
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

@@ -11,8 +11,7 @@ from src.adc_testdatascience_1.models.equivariant_cnn import RotEquivariantCNN
 from src.adc_testdatascience_1.models.logistic import LogisticRegression
 from src.adc_testdatascience_1.utils.data_utils import get_dataloaders
 
-
-
+import os
 
 class ModelEvaluator:
     def __init__(self, device):
@@ -142,15 +141,15 @@ if __name__ == "__main__":
 
     if args.model == "logistic":
         model = LogisticRegression()
-        model_path = "src/adc_testdatascience_1/models/logistic.pth"
+        model_path = os.path.join("src", "adc_testdatascience_1", "models", "logistic.pth")
         model_name = "Logistic"
     elif args.model == "cnn":
         model = SimpleCNN()
-        model_path = "src/adc_testdatascience_1/models/cnn.pth"
+        model_path = os.path.join("src", "adc_testdatascience_1", "models", "cnn.pth")
         model_name = "CNN"
     elif args.model == "rotcnn":
         model = RotEquivariantCNN()
-        model_path = "src/adc_testdatascience_1/models/rotcnn.pth"
+        model_path = os.path.join("src", "adc_testdatascience_1", "models", "rotcnn.pth")
         model_name = "RotEquivariantCNN"
 
     # Load model

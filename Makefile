@@ -1,5 +1,11 @@
 .PHONY: help install train test lint format cyclo clean
 
+# Set Python interpreter (adjust if needed for Windows or specific environment)
+PYTHON := python
+
+# Set the root directory for source files
+SRC := src.adc_testdatascience_1
+
 help:
 	@echo "Available commands:"
 	@echo "  install      Install dependencies"
@@ -14,24 +20,24 @@ install:
 	poetry install
 
 train:
-	# poetry run python src/adc_testdatascience_1/scripts/train_model.py --model=logistic
-	python src/adc_testdatascience_1/scripts/train_model.py --model=logistic
+	$(PYTHON) -m $(SRC).scripts.train_model --model=logistic
+
 test:
-	# poetry run python src/adc_testdatascience_1/scripts/test_model.py --model=logistic
-	python src/adc_testdatascience_1/scripts/test_model.py --model=rotcnn
+	$(PYTHON) -m $(SRC).scripts.test_model --model=rotcnn
 
 lint:
-	ruff check src tests
-	flake8 src tests
+	ruff check tests
+	flake8 tests
 
 format:
 	black . && isort .
 
 cyclo:
-	radon cc src -a
+	radon cc $(SRC) -a
 
 optimize:
-	python src/adc_testdatascience_1/optimize/optimize.py --model LogisticRegression
+	$(PYTHON) -m $(SRC).optimize.optimize --model LogisticRegression
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -r {} \; && find . -name "*.pyc" -delete
+

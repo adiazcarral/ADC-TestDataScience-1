@@ -29,8 +29,12 @@ The code is modular and includes proper evaluation and clean separation between 
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate       # On Windows: .venv\Scripts\activate
-
+```
+# On Windows:
+.venv\Scripts\activate
+# On macOS/Linux:
+```bash
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 ---
@@ -63,6 +67,14 @@ make test_model
 ```
 (defaults to training the rotcnn model)
 This will evaluate the selected model on the test dataset and display metrics and a confusion matrix.
+
+🧪 Run Unit Tests
+
+To run the unit tests using pytest, make sure you're in the virtual environment and inside the project root folder. Then run:
+
+```bash
+pytest tests
+```
 
 🗃️ Module Overview
 

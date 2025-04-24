@@ -101,9 +101,12 @@ def train_model(model, train_loader, val_loader, device, model_name="model", epo
     torch.save(model.state_dict(), save_path)
     print(f"✅ Model saved as {save_path}")
 
-     # Save the model using pickle
-    with open(f"src/adc_testdatascience_1/models/{model_name}_model.pkl", "wb") as f:
-        pickle.dump(model, f)   
+    # Construct the save path
+    model_save_path = os.path.join("src", "adc_testdatascience_1", "models", f"{model_name}_model.pkl")
+
+    # Save the model using pickle
+    with open(model_save_path, "wb") as f:
+        pickle.dump(model, f)  
 
     return model, history
 

@@ -16,9 +16,9 @@ class MNISTProcessor:
 
     def __init__(
         self,
-        data_dir: str = "./data",
+        data_dir: str = os.path.join("data"),
         rotation_degrees: Tuple[int, int] = (-180, 180),
-        save_csv_path: str = "./data/rotated_mnist.csv",
+        save_csv_path: str = os.path.join("data", "rotated_mnist.csv"),
         blur_threshold: float = 0.002,
         intensity_threshold: float = 0.1,
     ):
