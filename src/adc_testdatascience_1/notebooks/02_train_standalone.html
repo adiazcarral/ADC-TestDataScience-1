@@ -7531,7 +7531,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
@@ -7556,7 +7556,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set seed and device</span>
@@ -7575,7 +7575,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Data preparation with balanced validation split</span>
@@ -7620,7 +7620,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Simple Logistic Regression model</span>
@@ -7643,7 +7643,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SimpleCNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -7672,7 +7672,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">RotEquivariantCNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -7731,10 +7731,10 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">save_best</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s1">'model'</span><span class="p">,</span> <span class="n">save_best</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
     <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
     <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
@@ -7753,23 +7753,22 @@ a.anchor-link {
 
     <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
         <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-        <span class="n">train_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># running loss added</span>
         <span class="k">for</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
             <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">targets</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>            
             <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
             <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
-
-            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
             <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
             <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-            <span class="n">train_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">running_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>  <span class="c1"># accumulate loss</span>
 
-        <span class="n">train_loss</span> <span class="o">/=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
+        <span class="n">train_loss</span> <span class="o">=</span> <span class="n">running_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>  <span class="c1"># compute average</span>
         <span class="n">history</span><span class="p">[</span><span class="s2">"train_loss"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
 
         <span class="c1"># Validation</span>
         <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-        <span class="n">val_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">val_running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">all_preds</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">all_targets</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -7778,13 +7777,13 @@ a.anchor-link {
                 <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">targets</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
                 <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
                 <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
-                <span class="n">val_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                <span class="n">val_running_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">*</span> <span class="n">inputs</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
                 <span class="n">preds</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">all_preds</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
                 <span class="n">all_targets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">targets</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
 
-        <span class="n">val_loss</span> <span class="o">/=</span> <span class="nb">len</span><span class="p">(</span><span class="n">val_loader</span><span class="p">)</span>
+        <span class="n">val_loss</span> <span class="o">=</span> <span class="n">val_running_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">val_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
         <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_targets</span><span class="p">,</span> <span class="n">all_preds</span><span class="p">)</span>
         <span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">all_targets</span><span class="p">,</span> <span class="n">all_preds</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">'macro'</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">all_targets</span><span class="p">,</span> <span class="n">all_preds</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">'macro'</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -7808,11 +7807,11 @@ a.anchor-link {
 
     <span class="k">if</span> <span class="n">save_best</span> <span class="ow">and</span> <span class="n">best_model_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">best_model_state</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"💾 Loaded best model based on validation F1"</span><span class="p">)</span>
+        <span class="n">save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">.pth"</span><span class="p">)</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">save_path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ Model saved as </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">history</span>
-
-    
 </pre></div>
 </div>
 </div>
@@ -7823,14 +7822,13 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run training</span>
 <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">test_loader</span> <span class="o">=</span> <span class="n">get_dataloaders</span><span class="p">(</span><span class="n">subset_fraction</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-<span class="n">trained_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
-    
+<span class="n">trained_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s2">"logistic"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7843,22 +7841,38 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>📘 Epoch 1/5
-   🔹 Train Loss: 1.9761
-   🔸 Val Loss: 1.6987 | Acc: 0.3950 | Precision: 0.3892 | Recall: 0.4003 | F1: 0.3688
-📘 Epoch 2/5
-   🔹 Train Loss: 1.6057
-   🔸 Val Loss: 1.5364 | Acc: 0.4417 | Precision: 0.4205 | Recall: 0.4466 | F1: 0.4100
-📘 Epoch 3/5
-   🔹 Train Loss: 1.5110
-   🔸 Val Loss: 1.5069 | Acc: 0.4517 | Precision: 0.4419 | Recall: 0.4537 | F1: 0.4346
-📘 Epoch 4/5
-   🔹 Train Loss: 1.4745
-   🔸 Val Loss: 1.4629 | Acc: 0.4650 | Precision: 0.4526 | Recall: 0.4711 | F1: 0.4502
-📘 Epoch 5/5
-   🔹 Train Loss: 1.4576
-   🔸 Val Loss: 1.4529 | Acc: 0.4833 | Precision: 0.4676 | Recall: 0.4922 | F1: 0.4606
+<pre>📘 Epoch 1/10
+   🔹 Train Loss: 1.9640
+   🔸 Val Loss: 1.7161 | Acc: 0.3783 | Precision: 0.3912 | Recall: 0.3770 | F1: 0.3499
+📘 Epoch 2/10
+   🔹 Train Loss: 1.6196
+   🔸 Val Loss: 1.5756 | Acc: 0.4350 | Precision: 0.4429 | Recall: 0.4405 | F1: 0.4116
+📘 Epoch 3/10
+   🔹 Train Loss: 1.5235
+   🔸 Val Loss: 1.5415 | Acc: 0.4300 | Precision: 0.4561 | Recall: 0.4308 | F1: 0.3986
+📘 Epoch 4/10
+   🔹 Train Loss: 1.5027
+   🔸 Val Loss: 1.4884 | Acc: 0.4433 | Precision: 0.4151 | Recall: 0.4412 | F1: 0.4127
+📘 Epoch 5/10
+   🔹 Train Loss: 1.4608
+   🔸 Val Loss: 1.5241 | Acc: 0.4450 | Precision: 0.4284 | Recall: 0.4434 | F1: 0.4175
+📘 Epoch 6/10
+   🔹 Train Loss: 1.4606
+   🔸 Val Loss: 1.4721 | Acc: 0.4617 | Precision: 0.4331 | Recall: 0.4584 | F1: 0.4350
+📘 Epoch 7/10
+   🔹 Train Loss: 1.4356
+   🔸 Val Loss: 1.4293 | Acc: 0.4933 | Precision: 0.4924 | Recall: 0.4887 | F1: 0.4825
+📘 Epoch 8/10
+   🔹 Train Loss: 1.4400
+   🔸 Val Loss: 1.4326 | Acc: 0.4700 | Precision: 0.4427 | Recall: 0.4635 | F1: 0.4420
+📘 Epoch 9/10
+   🔹 Train Loss: 1.4117
+   🔸 Val Loss: 1.4179 | Acc: 0.4900 | Precision: 0.4671 | Recall: 0.4836 | F1: 0.4693
+📘 Epoch 10/10
+   🔹 Train Loss: 1.4044
+   🔸 Val Loss: 1.4186 | Acc: 0.4950 | Precision: 0.4845 | Recall: 0.4845 | F1: 0.4764
 ✅ Training complete
+✅ Model saved as logistic.pth
 </pre>
 </div>
 </div>
@@ -7869,13 +7883,13 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run training</span>
 <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">test_loader</span> <span class="o">=</span> <span class="n">get_dataloaders</span><span class="p">(</span><span class="n">subset_fraction</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">SimpleCNN</span><span class="p">()</span>
-<span class="n">trained_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<span class="n">trained_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s2">"cnn"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7888,22 +7902,38 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>📘 Epoch 1/5
-   🔹 Train Loss: 1.6908
-   🔸 Val Loss: 1.3060 | Acc: 0.5483 | Precision: 0.5788 | Recall: 0.5451 | F1: 0.5334
-📘 Epoch 2/5
-   🔹 Train Loss: 1.0683
-   🔸 Val Loss: 0.9979 | Acc: 0.6567 | Precision: 0.7178 | Recall: 0.6512 | F1: 0.6597
-📘 Epoch 3/5
-   🔹 Train Loss: 0.8534
-   🔸 Val Loss: 0.7704 | Acc: 0.7500 | Precision: 0.7647 | Recall: 0.7486 | F1: 0.7452
-📘 Epoch 4/5
-   🔹 Train Loss: 0.7083
-   🔸 Val Loss: 0.6781 | Acc: 0.7983 | Precision: 0.7955 | Recall: 0.7951 | F1: 0.7921
-📘 Epoch 5/5
-   🔹 Train Loss: 0.6191
-   🔸 Val Loss: 0.6913 | Acc: 0.7850 | Precision: 0.8065 | Recall: 0.7774 | F1: 0.7789
+<pre>📘 Epoch 1/10
+   🔹 Train Loss: 1.7102
+   🔸 Val Loss: 1.4398 | Acc: 0.4917 | Precision: 0.5110 | Recall: 0.4971 | F1: 0.4715
+📘 Epoch 2/10
+   🔹 Train Loss: 1.1767
+   🔸 Val Loss: 1.0385 | Acc: 0.6317 | Precision: 0.6621 | Recall: 0.6227 | F1: 0.6195
+📘 Epoch 3/10
+   🔹 Train Loss: 0.9058
+   🔸 Val Loss: 0.8513 | Acc: 0.6967 | Precision: 0.7347 | Recall: 0.6956 | F1: 0.6979
+📘 Epoch 4/10
+   🔹 Train Loss: 0.7650
+   🔸 Val Loss: 0.7672 | Acc: 0.7383 | Precision: 0.7727 | Recall: 0.7381 | F1: 0.7320
+📘 Epoch 5/10
+   🔹 Train Loss: 0.6641
+   🔸 Val Loss: 0.6436 | Acc: 0.7867 | Precision: 0.7885 | Recall: 0.7809 | F1: 0.7788
+📘 Epoch 6/10
+   🔹 Train Loss: 0.6045
+   🔸 Val Loss: 0.5613 | Acc: 0.8183 | Precision: 0.8236 | Recall: 0.8156 | F1: 0.8162
+📘 Epoch 7/10
+   🔹 Train Loss: 0.5239
+   🔸 Val Loss: 0.5405 | Acc: 0.8250 | Precision: 0.8367 | Recall: 0.8252 | F1: 0.8261
+📘 Epoch 8/10
+   🔹 Train Loss: 0.4917
+   🔸 Val Loss: 0.4793 | Acc: 0.8433 | Precision: 0.8558 | Recall: 0.8398 | F1: 0.8405
+📘 Epoch 9/10
+   🔹 Train Loss: 0.4502
+   🔸 Val Loss: 0.4928 | Acc: 0.8567 | Precision: 0.8632 | Recall: 0.8565 | F1: 0.8561
+📘 Epoch 10/10
+   🔹 Train Loss: 0.4226
+   🔸 Val Loss: 0.4825 | Acc: 0.8500 | Precision: 0.8591 | Recall: 0.8478 | F1: 0.8485
 ✅ Training complete
+✅ Model saved as cnn.pth
 </pre>
 </div>
 </div>
@@ -7914,13 +7944,13 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run training</span>
 <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">test_loader</span> <span class="o">=</span> <span class="n">get_dataloaders</span><span class="p">(</span><span class="n">subset_fraction</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">RotEquivariantCNN</span><span class="p">()</span>
-<span class="n">trained_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<span class="n">trained_model</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s2">"rotcnn"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7933,22 +7963,38 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>📘 Epoch 1/5
-   🔹 Train Loss: 1.9331
-   🔸 Val Loss: 1.1153 | Acc: 0.6133 | Precision: 0.6772 | Recall: 0.6093 | F1: 0.6013
-📘 Epoch 2/5
-   🔹 Train Loss: 0.8500
-   🔸 Val Loss: 0.6679 | Acc: 0.7800 | Precision: 0.8047 | Recall: 0.7793 | F1: 0.7727
-📘 Epoch 3/5
-   🔹 Train Loss: 0.5973
-   🔸 Val Loss: 0.5984 | Acc: 0.7983 | Precision: 0.8223 | Recall: 0.7974 | F1: 0.7958
-📘 Epoch 4/5
-   🔹 Train Loss: 0.4996
-   🔸 Val Loss: 0.4819 | Acc: 0.8467 | Precision: 0.8488 | Recall: 0.8468 | F1: 0.8457
-📘 Epoch 5/5
-   🔹 Train Loss: 0.4532
-   🔸 Val Loss: 0.4243 | Acc: 0.8767 | Precision: 0.8836 | Recall: 0.8776 | F1: 0.8777
+<pre>📘 Epoch 1/10
+   🔹 Train Loss: 1.8935
+   🔸 Val Loss: 1.0749 | Acc: 0.6300 | Precision: 0.6881 | Recall: 0.6369 | F1: 0.6278
+📘 Epoch 2/10
+   🔹 Train Loss: 0.8379
+   🔸 Val Loss: 0.6432 | Acc: 0.7933 | Precision: 0.7987 | Recall: 0.7925 | F1: 0.7903
+📘 Epoch 3/10
+   🔹 Train Loss: 0.6159
+   🔸 Val Loss: 0.5488 | Acc: 0.8333 | Precision: 0.8398 | Recall: 0.8309 | F1: 0.8327
+📘 Epoch 4/10
+   🔹 Train Loss: 0.4823
+   🔸 Val Loss: 0.4544 | Acc: 0.8733 | Precision: 0.8758 | Recall: 0.8750 | F1: 0.8722
+📘 Epoch 5/10
+   🔹 Train Loss: 0.4233
+   🔸 Val Loss: 0.4435 | Acc: 0.8533 | Precision: 0.8584 | Recall: 0.8533 | F1: 0.8504
+📘 Epoch 6/10
+   🔹 Train Loss: 0.3671
+   🔸 Val Loss: 0.3496 | Acc: 0.8817 | Precision: 0.8809 | Recall: 0.8814 | F1: 0.8806
+📘 Epoch 7/10
+   🔹 Train Loss: 0.3683
+   🔸 Val Loss: 0.3613 | Acc: 0.8917 | Precision: 0.8972 | Recall: 0.8887 | F1: 0.8895
+📘 Epoch 8/10
+   🔹 Train Loss: 0.3240
+   🔸 Val Loss: 0.3498 | Acc: 0.8900 | Precision: 0.8927 | Recall: 0.8895 | F1: 0.8891
+📘 Epoch 9/10
+   🔹 Train Loss: 0.2960
+   🔸 Val Loss: 0.3226 | Acc: 0.8783 | Precision: 0.8825 | Recall: 0.8771 | F1: 0.8769
+📘 Epoch 10/10
+   🔹 Train Loss: 0.2781
+   🔸 Val Loss: 0.3015 | Acc: 0.9067 | Precision: 0.9069 | Recall: 0.9076 | F1: 0.9059
 ✅ Training complete
+✅ Model saved as rotcnn.pth
 </pre>
 </div>
 </div>
