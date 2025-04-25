@@ -11,17 +11,13 @@ TEST 1 -- DATA SCIENCE - CLASIFICACIÓN
 -   Free software: MIT license
 -   Documentation: <https://adc-testdatascience-1.readthedocs.io>.
 
-Absolutely! Here’s a copy-paste ready section to include at the beginning of your README:
-
-⸻
-
 ⚠️ Important Setup Notes
 	1.	Python Version Compatibility
 This project requires Python 3.8+. Please ensure you’re using the correct version to avoid compatibility issues.
 You can check your Python version with:
-
+```bash
 python --version
-
+```
 
 	2.	Add Project Root to PYTHONPATH
 To ensure that relative imports work correctly when running scripts, add the project root directory to your PYTHONPATH.
