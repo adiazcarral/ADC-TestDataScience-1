@@ -6,7 +6,7 @@ To get started with the **ADC Test Data Science 1** package, follow the steps be
 
 Ensure you have the following installed:
 
-- Python 3.x
+- Python 3.9
 - pip or conda
 
 ### Step 1: Clone the repository
