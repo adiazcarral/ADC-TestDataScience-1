@@ -29,9 +29,7 @@ To ensure that relative imports work correctly when running scripts, add the pro
 	•	On Windows (CMD): set PYTHONPATH=%cd%;%PYTHONPATH%
 
 
-	•	On Windows (PowerShell):
-
-$env:PYTHONPATH = "$(Get-Location);" + $env:PYTHONPATH
+	•	On Windows (PowerShell): $env:PYTHONPATH = "$(Get-Location);" + $env:PYTHONPATH
 
 
 This ensures modules inside src/ are properly found when running scripts like:
